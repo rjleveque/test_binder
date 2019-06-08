@@ -24,10 +24,5 @@ RUN jupyter contrib nbextension install --user
 RUN jupyter nbextension enable widgetsnbextension --py
 RUN jupyter nbextension enable equation-numbering/main
 
-
-# Add book's files
-RUN git clone --depth=1 https://github.com/clawpack/riemann_book
-
-RUN pip install --user --no-cache-dir -r $HOME/riemann_book/requirements.txt
-
-CMD jupyter notebook riemann_book/Index.ipynb --ip='*' --no-browser
+# Start notebook server
+CMD jupyter notebook --ip='*' --no-browser
